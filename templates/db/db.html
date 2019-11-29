@@ -5,9 +5,33 @@
 
 
 {% block content %}
-<h1>Database</h1>
+<div class="container mt-2">
+    <table class="table" id="data-table">
+        <thead class="thead-dark">
+            <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+                <th onclick="sortTable(this)">Field</th>
+                <th onclick="sortTable(this)">Type</th>
+                <th onclick="sortTable(this)">Location</th>
+                <th onclick="sortTable(this)">Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in fields %}
+            <tr>
+                <td>{{field.name}}</td>
+                <td>{{field.type}}</td>
+                <td>{{field.location}}</td>
+                <td>{{field.owner}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
 {% endblock content %}
 
 
 {% block scripts %}
+
 {% endblock scripts %}

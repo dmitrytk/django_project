@@ -1,7 +1,8 @@
 from django.shortcuts import render
-
+from .models import OilField
 # Create your views here.
 
 
 def db(request):
-    return render(request, 'db/db.html')
+    fields = OilField.objects.all()
+    return render(request, 'db/db.html', {'fields': fields})

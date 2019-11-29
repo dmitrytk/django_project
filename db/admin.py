@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Well, OilField
 
-# Register your models here.
+admin.site.register(Well)
+admin.site.register(OilField)
