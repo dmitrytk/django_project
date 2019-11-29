@@ -4,6 +4,10 @@ body {
   padding: 0px;
 }
 
+#login-div {
+  display: none;
+}
+
 #drop_zone{
 	border:2px dashed #bbb;
 	-moz-border-radius:5px;
