@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Расстояния{% endblock %}
+
+{% block content %}
+<div class="container">
+    <textarea placeholder="WELL X Y" class="area" id="txt-area" rows="4" cols="50"></textarea>
+    <button class=" btn btn-danger" id='clear'>Очистить</button>
+    <div class="table-responsive" id="table-div">
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'js/distance.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Понижения{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        <div id="drop_zone">Перетащите файл excel
+            сюда
+        </div>
+    </div>
+    <form class="form-horizontal" action="">
+        <div class="form-group">
+            <label class="control-label col-sm-12" for="step">Шаг сетки, м</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="step" value="200">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-12" for="margin">Запас по X и Y, м</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="margin" value="3000">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-12" for="margin">Срезки от соседних водозаборов</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="field" value="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label><input type="checkbox" id="tableCheckBox" checked>
+                        Таблица</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="imageCheckBox"> Картинка</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="gridCheckBox"> Грид</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <button class="btn btn-primary" id="calculate" disabled>Расчитать</button>
+        <button class="btn btn-danger" id="del" disabled>Очистить</button>
+    </div>
+
+    <div class="container">
+        <div id="progress_div">
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="table-responsive" id="table">
+        </div>
+    </div>
+    <div class="container" id="chart"></div>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'js/libs/FileSaver.min.js' %}"></script>
+<script src="{% static 'js/libs/xlsx.full.min.js' %}"></script>
+<script src="{% static 'js/ei.js' %}"></script>
+<script src="{% static 'js/sub.js' %}"></script>
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+{% endblock scripts %}

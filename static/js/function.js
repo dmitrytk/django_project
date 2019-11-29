@@ -208,7 +208,7 @@ function toNumber(e) {
 }
 
 function scrollToElement(selector) {
-    $('html, body').animate({
-        scrollTop: $(selector).offset().top
-    }, 700);
+    // $('html, body').animate({
+    //     scrollTop: $(selector).offset().top
+    // }, 700);
 }

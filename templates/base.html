@@ -6,18 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/drop.png' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Petromas</title>
+    <title>Petromas {% block title %}{% endblock %}</title>
 </head>
 
 <body>
-
     <!-- ANOTHER NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Главная</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+        <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Месторождения</a>
+                    <a class="nav-link" href="{% url 'db' %}">Месторождения</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -33,12 +34,11 @@
                         Инструменты
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Понижение</a>
-                        <a class="dropdown-item" href="#">Понижение полное</a>
-                        <a class="dropdown-item" href="#">Расстояния</a>
-                        <a class="dropdown-item" href="#">Калькулятор воды</a>
-                        <a class="dropdown-item" href="#">Roxar</a>
-                        <a class="dropdown-item" href="#">Печать</a>
+                        <a class="dropdown-item" href="{% url 'sub' %}">Понижение</a>
+                        <a class="dropdown-item" href="{% url 'distance' %}">Расстояния</a>
+                        <a class="dropdown-item" href="{% url 'water' %}">Калькулятор воды</a>
+                        <a class="dropdown-item" href="{% url 'roxar' %}">Roxar</a>
+                        <a class="dropdown-item" href="{% url 'print' %}">Печать</a>
                     </div>
                 </li>
             </ul>
@@ -78,8 +78,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <!-- <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script> -->
-
+    <script src="{% static 'js/function.js' %}"></script>
 
     {% block scripts %}
     {% endblock scripts %}

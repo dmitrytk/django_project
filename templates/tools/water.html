@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Калькулятор воды{% endblock %}
+
+{% block content %}
+<div class="cont">
+    <form id="water-form">
+        <div class="form-group">
+            <label> <strong>Минерализация, г/л</strong></label>
+            <input onkeyup="calcParameters()" type="number" class="form-control" id="salinity">
+        </div>
+        <div class="form-group">
+            <label><strong>Температура, &deg;C</strong></label>
+            <input onkeyup="calcParameters()" type="number" class="form-control" id="temperature">
+        </div>
+        <div class="form-group">
+            <label><strong>Вязкость, сПз</strong></label>
+            <input type="number" class="form-control" id="viscosity" disabled="true">
+        </div>
+        <div class="form-group">
+            <label><strong>Плотность, г/см<sup>3</sup></strong></label>
+            <input type="number" class="form-control" id="density" disabled="true">
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'js/water.js' %}"></script>
+{% endblock scripts %}
