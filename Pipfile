@@ -10,6 +10,8 @@ autopep8 = "*"
 [packages]
 django = "*"
 pillow = "*"
+django-crispy-forms = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

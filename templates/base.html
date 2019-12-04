@@ -25,9 +25,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'db' %}">Месторождения</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        База данных
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'db' %}">Месторождения</a>
+                        <a class="dropdown-item" href="#">Скважины</a>
+                        <a class="dropdown-item" href="#">Недропользователи</a>
+                    </div>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,19 +52,6 @@
                     </div>
                 </li>
             </ul>
-            <div class="login-container" id="login-div">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Username" name="username">
-                    <input type="text" placeholder="Password" name="psw">
-                    <button type="submit">Login</button>
-                </form>
-            </div>
-            <a class="btn btn-outline-success my-2 my-sm-0" href="#" id="login-btn">Login</a>
-            <form class="form-inline my-2 my-lg-0" id="login-form" type="post">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <input class="form-control mr-sm-2" type="password" aria-label="Password">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-            </form>
         </div>
     </nav>
 
