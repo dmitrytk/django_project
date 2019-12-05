@@ -12,6 +12,7 @@ django = "*"
 pillow = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.7"
