@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'tools.apps.ToolsConfig',
     'db.apps.DbConfig',
+    'users.apps.UsersConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Internationalization
