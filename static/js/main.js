@@ -1,14 +1,5 @@
 console.log('Main js is active');
 
-var loginBtn = document.querySelector('#login-btn');
-var loginForm = document.querySelector('#login-form');
-loginForm.style.display = 'none';
-
-
-loginBtn.addEventListener('mouseover', () => {
-    loginForm.style.display = 'block';
-    loginBtn.style.display = 'none';
-})
 
 function sortTable(n) {
     var n = n.cellIndex
