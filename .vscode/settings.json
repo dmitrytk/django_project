@@ -1,3 +1,11 @@
 {
-    "python.pythonPath": "/bin/python3"
+    "python.pythonPath": "/home/dmitry/code/python/django_project/venv/bin/python3",
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/venv/**": true
+    },
+    "files.exclude": {
+        ".idea/": true,
+        "venv/": true,
+    }
 }
