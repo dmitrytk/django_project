@@ -19,7 +19,7 @@ class OilField(models.Model):
 
 
 class Well(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     field = models.ForeignKey(
         OilField, related_name='wells', on_delete=models.CASCADE)
 
