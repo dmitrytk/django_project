@@ -52,6 +52,16 @@
                     </div>
                 </li>
             </ul>
+            {% if user.is_authenticated %}
+                <a class="nav-item nav-link text-light" href="#">Logout</a>
+                {% if user.is_superuser %}
+                    <a class="nav-item text-light"> | </a>
+                    <a class="nav-item nav-link text-light" href="{% url 'admin:index' %}">Admin</a>
+                {% endif %}
+            {% else %}
+                <a class="nav-item nav-link text-light" href="#">Login</a>
+                <a class="nav-item nav-link text-light" href="#">Register</a>
+            {% endif %}
         </div>
     </nav>
 

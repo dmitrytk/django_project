@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/dmitry/code/python/django_project/venv/bin/python3",
+    "python.pythonPath": "venv\\Scripts\\python.exe",
     "files.watcherExclude": {
         "**/.git/**": true,
         "**/venv/**": true
