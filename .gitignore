@@ -124,3 +124,6 @@ $RECYCLE.BIN/
 
 # Django
 media/
+
+# Pycharm
+.idea/
