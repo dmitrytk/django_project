@@ -8,9 +8,11 @@ class CustomUserTests(TestCase):
         user = User.objects.create_user(
             username='will',
             email='will@email.com',
-            password='testpass123'
+            password='testpass123',
+            job='chief engineer',
         )
         self.assertEqual(user.username, 'will')
+        self.assertEqual(user.job, 'chief engineer')
         self.assertEqual(user.email, 'will@email.com')
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
@@ -21,10 +23,12 @@ class CustomUserTests(TestCase):
         admin_user = User.objects.create_superuser(
             username='superadmin',
             email='superadmin@email.com',
-            password='testpass123'
+            password='testpass123',
+            job='admin'
         )
         self.assertEqual(admin_user.username, 'superadmin')
         self.assertEqual(admin_user.email, 'superadmin@email.com')
+        self.assertEqual(admin_user.job, 'admin')
         self.assertTrue(admin_user.is_active)
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)

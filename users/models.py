@@ -3,4 +3,4 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    pass
+    job = models.CharField(max_length=50, blank=True)
