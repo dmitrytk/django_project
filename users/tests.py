@@ -40,25 +40,23 @@ class CustomUserTests(TestCase):
 
 
 class SignupUserTests(TestCase):
+    username = 'newuser'
+    email = 'newuser@email.com'
+    password = 'QWVSCVGTRERTewtgfgdf423'
 
     def setUp(self):
-        self.url = reverse('signup')
+        self.url = reverse('account_signup')
         self.response = self.client.get(self.url)
 
     def test_signup_page(self):
         self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'registration/signup.html')
+        self.assertTemplateUsed(self.response, 'account/signup.html')
         self.assertContains(self.response, '<h2>Sign Up</h2>')
 
-    def test_signup_form(self): # new
-        form = self.response.context.get('form')
-        self.assertIsInstance(form, CustomUserCreationForm)
-        self.assertContains(self.response, 'csrfmiddlewaretoken')
-
-    def test_signup_view(self): # new
-        view = resolve(self.url)
-        self.assertEqual(
-        view.func.__name__,
-        SignupPageView.as_view().__name__
-        )
-                
+    def test_signup_form(self):
+        new_user = get_user_model().objects.create_user(self.username, self.email)
+        self.assertEqual(get_user_model().objects.all().count(), 1)
+        self.assertEqual(get_user_model().objects.all()
+                         [0].username, self.username)
+        self.assertEqual(get_user_model().objects.all()
+                         [0].email, self.email)

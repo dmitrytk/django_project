@@ -5,6 +5,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Shell scripts
+cmd
+*.bat
+*.sh
+
+
 # C extensions
 *.so
 
