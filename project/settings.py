@@ -26,14 +26,42 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # My apps
+    'django.contrib.sites',
+
+    # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+
+    # My apps
     'home.apps.HomeConfig',
     'tools.apps.ToolsConfig',
     'db.apps.DbConfig',
     'users.apps.UsersConfig',
 
 ]
+
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+
+# django-allauth config
+SITE_ID = 1
+
+ACCOUNT_SESSION_REMEMBER = True
+
+ACCOUNT_LOGOUT_ON_GET = True
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
