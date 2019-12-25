@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+{% block title %}{{ field.title }}{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{ field.name }} {{ field.type }} месторождение</h1>
+
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p> <strong>Недропользователь: </strong>{{ field.owner }}</p>
+        <p> <strong>Местонахождение: </strong>{{ field.location }}</p>
+        <hr>
+
+        <!-- Image -->
+        <img class="mx-auto obzor-full" src="{{ field.obzor_img.url }}" alt="">
+
+        <hr>
+
+        <!-- Description -->
+
+        <p>{{ field.description }}</p>
+
+    </div>
+</div>
+
+
+{% endblock content %}

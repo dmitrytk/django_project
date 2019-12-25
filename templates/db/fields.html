@@ -1,7 +1,7 @@
 {% extends '_base.html' %}
 {% load static %}
 
-{% block title %}| База данных{% endblock %}
+{% block title %}| Fields database{% endblock %}
 
 
 {% block content %}
@@ -13,15 +13,19 @@
                 <th onclick="sortTable(this)">Type</th>
                 <th onclick="sortTable(this)">Location</th>
                 <th onclick="sortTable(this)">Owner</th>
+                <th onclick="sortTable(this)">Map</th>
             </tr>
         </thead>
         <tbody>
             {% for field in fields %}
             <tr>
-                <td>{{field.name}}</td>
+                <td>
+                    <a href="{% url 'field_detail' field.id %}">{{field.name}}</td></a>
                 <td>{{field.type}}</td>
                 <td>{{field.location}}</td>
                 <td>{{field.owner}}</td>
+                <td><a href="{{ field.obzor_img.url }}"><img class="obzor-min" src="{{ field.obzor_img.url }}" /></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

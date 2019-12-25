@@ -87,3 +87,11 @@ a { text-decoration: none }
 .my-button {
   height: 2.5rem;
 }
+
+.obzor-min{
+  width: 32px;
+}
+
+.obzor-full{
+  /* width: 32px; */
+}
