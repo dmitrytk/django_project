@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "D:\\Tools\\Python\\python.exe",
+    "python.pythonPath": "C:\\Python37\\python.exe",
     "files.watcherExclude": {
         "**/.git/**": true,
         "**/venv/**": true
