@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect, render
+
 from .models import OilField
-# Create your views here.
 
 
 class FieldView(ListView):
