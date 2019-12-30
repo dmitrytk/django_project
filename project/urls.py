@@ -4,9 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),  # allauth urls
-    path('', include('home.urls')),  # Home page
-    path('tools/', include('tools.urls')),  # Static tool pages
-    path('db/', include('db.urls')),  # Oil field database
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('accounts/', include('allauth.urls')),  # allauth urls
+                  path('', include('home.urls')),  # Home page
+                  path('tools/', include('tools.urls')),  # Static tool pages
+                  path('db/', include('db.urls')),  # Oil field database
+                  path('accounts/', include('users.urls')),  # Oil field database
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

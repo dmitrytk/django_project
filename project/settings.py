@@ -3,7 +3,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -14,7 +13,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -64,7 +62,6 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'admin@petromas.pro'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -159,5 +155,4 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

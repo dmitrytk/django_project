@@ -1,5 +1,6 @@
 ## Basic Django forms
 
+
 Simple html form. action -> resource/url
 ```html
 <form action="/team_name_url/" method="post">
@@ -22,6 +23,7 @@ class OilFieldForm(forms.Form):
     owner = forms.CharField(max_length=50)
     description = forms.CharField(widget=forms.Textarea)
 ```
+
 Manual validation. cleaned_data
 ```python
 from django import forms
@@ -47,6 +49,8 @@ class RenewBookForm(forms.Form):
         # Always return cleaned data
         return data
 ```
+
+
 
 
 

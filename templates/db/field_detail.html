@@ -26,7 +26,12 @@
         <p>{{ field.description }}</p>
 
     </div>
+    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+    <hr>
+    <a class="btn btn-outline-danger" href="#">Edit field</a>
+    {% endif %}
+    {% endif %}
 </div>
-
 
 {% endblock content %}
