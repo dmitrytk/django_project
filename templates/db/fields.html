@@ -24,7 +24,10 @@
                 <td>{{field.type}}</td>
                 <td>{{field.location}}</td>
                 <td>{{field.owner}}</td>
-                <td><a href="{{ field.obzor_img.url }}"><img class="obzor-min" src="{{ field.obzor_img.url }}" /></a>
+                <td>
+                    {% if field.obzor_img%}
+                    <a href="{{ field.obzor_img.url }}"><img class="obzor-min" src="{{ field.obzor_img.url }}" /></a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

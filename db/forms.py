@@ -1,11 +1,9 @@
 from django import forms
+from .models import OilField
 
 
-class FieldUpdateForm(forms.Form):
-    name = forms.CharField(label='Oil field name', required=True,
-                           error_messages={'required': 'Please enter field name'})
-    type = forms.CharField()
-    location = forms.CharField()
-    owner = forms.CharField()
-    description = forms.CharField(widget=forms.Textarea)
-    obzor_img = forms.ImageField()
+class FieldUpdateForm(forms.ModelForm):
+    class Meta:
+        # fields = ['name', 'type', 'location'] select fields
+        exclude = []  # all fields
+        model = OilField

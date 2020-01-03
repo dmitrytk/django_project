@@ -17,7 +17,9 @@
         <hr>
 
         <!-- Image -->
+        {% if field.obzor_img%}
         <img class="mx-auto obzor-full" src="{{ field.obzor_img.url }}" alt="">
+        {% endif %}
 
         <hr>
 
@@ -29,7 +31,7 @@
     {% if user.is_authenticated %}
     {% if user.is_superuser %}
     <hr>
-    <a class="btn btn-outline-danger" href="#">Edit field</a>
+    <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
     {% endif %}
     {% endif %}
 </div>
