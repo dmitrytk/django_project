@@ -4,6 +4,6 @@ from .models import OilField
 
 class FieldUpdateForm(forms.ModelForm):
     class Meta:
-        # fields = ['name', 'type', 'location'] select fields
-        exclude = []  # all fields
         model = OilField
+        fields = ('name', 'type', 'location', 'owner', 'obzor_img')
+        # exclude = []  # all fields
