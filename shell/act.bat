@@ -1,0 +1,1 @@
+%userprofile%\Desktop\code\python\.envs\django_project\Scripts\activate

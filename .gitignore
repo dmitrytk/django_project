@@ -5,9 +5,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Shell scripts
-*.bat
-*.sh
+
 
 
 # C extensions
