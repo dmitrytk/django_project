@@ -48,7 +48,7 @@
                             Database
                         </a>
                         <div class="dropdown-menu show-top-bottom" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Oil Fields</a>
+                            <a class="dropdown-item" href="{% url 'fields' %}">Fields</a>
                             <a class="dropdown-item" href="#">Wells</a>
                         </div>
                     </li>
@@ -58,9 +58,11 @@
                             Tools
                         </a>
                         <div class="dropdown-menu show-top-bottom" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Decline</a>
-                            <a class="dropdown-item" href="#">Distance</a>
-                            <a class="dropdown-item" href="#">Roxar</a>
+                            <a class="dropdown-item" href="{% url 'sub' %}">Decline</a>
+                            <a class="dropdown-item" href="{% url 'distance' %}">Distance</a>
+                            <a class="dropdown-item" href="{% url 'water' %}">Water calc</a>
+                            <a class="dropdown-item" href="{% url 'roxar' %}">Roxar</a>
+                            <a class="dropdown-item" href="{% url 'print' %}">Print</a>
                         </div>
                     </li>
 
