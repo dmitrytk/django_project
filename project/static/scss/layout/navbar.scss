@@ -1,88 +1,88 @@
 .section-nav {
-    width: 100%;
-    position: fixed;
-    z-index: 10;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
 }
 
 .nav-item {
-    font-size: 1.1rem;
-    font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .navbar-brand {
-    font-family: "Raleway", Arial, Helvetica, sans-serif;
-    font-size: 1.7rem;
-    font-weight: 1000;
-    transition: all .3s;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  transition: all .3s;
 
-    &:hover {
-        color: $primary !important;
-    }
+  &:hover {
+    color: $primary !important;
+  }
 }
 
 #navbar-list .nav-link {
-    transition: .5s;
+  transition: .5s;
 
-    &:hover {
-        color: $primary;
-    }
+  &:hover {
+    color: $primary;
+  }
 }
 
 #navbar-list {
-    padding: .5rem;
-    transition: .3s;
+  padding: .5rem;
+  transition: .3s;
 
-    & a.btn {
-        font-size: 1.1rem;
-    }
+  & a.btn {
+    font-size: 1.1rem;
+  }
 }
 
 #nav.transparent .dropdown-menu {
-    background: transparentize($dark, 0.7);
-    border: none;
+  background: transparentize($dark, 0.7);
+  border: none;
 
-    &:hover {
-        background: transparentize($dark, 0.7);
-    }
+  &:hover {
+    background: transparentize($dark, 0.7);
+  }
 }
 
 
 .dropdown-menu {
-    background: $dark;
-    border: none;
+  background: $dark;
+  border: none;
 }
 
 .transparent .dropdown-menu {
-    background: rgba(0, 0, 0, 0) !important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 
 .dropdown-item {
-    color: #fff;
-    transition: .3s;
+  color: #fff;
+  transition: .3s;
 
-    &:hover {
-        background: inherit;
-        color: $primary;
-    }
+  &:hover {
+    background: inherit;
+    color: $primary;
+  }
 }
 
 .navbar-toggler {
-    border: none;
+  border: none;
 
-    &:focus {
-        border: none;
-        outline: none;
-    }
+  &:focus {
+    border: none;
+    outline: none;
+  }
 
 }
 
-@media (min-width:768px) {
-    #navbar-list a.btn {
-        margin-left: .5rem;
-        display: inline-block;
-    }
+@media (min-width: 768px) {
+  #navbar-list a.btn {
+    margin-left: .5rem;
+    display: inline-block;
+  }
 
-    #navbar-list {
-        padding: 2rem .5rem;
-    }
+  #navbar-list {
+    padding: 2rem .5rem;
+  }
 }

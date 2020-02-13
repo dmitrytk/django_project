@@ -60,7 +60,11 @@ if (document.querySelector('title').innerText === 'TK') {
             }
         }
     });
-
+} else {
+    const sectionNav = document.querySelector('.section-nav');
+    sectionNav.style.position = 'static';
+    const navbar_list = document.querySelector('#navbar-list');
+    navbar_list.style.padding = '.5rem';
 }
 
 
