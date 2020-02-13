@@ -1,0 +1,20 @@
+{
+  "name": "css_sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "main": "node-sass -w scss/main.scss css/main.css --output-style compressed",
+    "vendor": "node-sass -w scss/vendor.scss css/vendor.css --output-style compressed",
+    "win": "start npm run main & start npm run vendor",
+    "lin": "npm run main & npm run vendor"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.1"
+  }
+}

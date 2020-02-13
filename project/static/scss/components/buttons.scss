@@ -1,0 +1,22 @@
+.btn {
+    transition: all .3s;
+
+    &:hover {}
+}
+
+.btn-primary {
+    // color: #fff;
+
+
+    &:after {
+        content: none;
+        background: $primary;
+    }
+}
+
+
+
+.big {
+    transition: .3s;
+    font-size: 1.6rem;
+}

@@ -1,0 +1,26 @@
+.top-footer {
+    background: $ldark;
+
+    a {
+        font-size: 2.2rem;
+        color: #fff;
+        transition: .3s;
+
+        &:not(:last-child) {
+            margin-right: .5rem;
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+}
+
+.bot-footer {
+    background: $dark;
+
+    p {
+        color: #ccc;
+    }
+}

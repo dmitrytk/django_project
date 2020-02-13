@@ -1,0 +1,15 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// $primary: #18A3FA;
+// $primary: #eb3c5a;
+// $primary: #dc3545;
+$primary: #ff3b3f;
+$background: #f8f9fa;
+$danger: #e5322d;
+$dark: #27282C;
+$ldark: #3B3E43;
+$btn-border-radius:5px;
+$border-radius:5px;
+
+$theme-colors: ("ldark": $ldark);

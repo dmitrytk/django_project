@@ -1,58 +1,66 @@
 console.log('Main js is active');
 
+// Initialize animation
+AOS.init({
+    duration: 1000,
+    once: true,
+});
 
-function sortTable(n) {
-    var n = n.cellIndex
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("data-table");
-    switching = true;
-    //Set the sorting direction to ascending:
-    dir = "asc";
-    /*Make a loop that will continue until
-    no switching has been done:*/
-    while (switching) {
-        //start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /*Loop through all table rows (except the
-        first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
-            //start by saying there should be no switching:
-            shouldSwitch = false;
-            /*Get the two elements you want to compare,
-            one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            /*check if the two rows should switch place,
-            based on the direction, asc or desc:*/
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
+$(document).ready(function () {
+    $('#table_id').DataTable();
+    // Initialize owl carousel
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 2
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 6
+            }
+        },
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplaySpeed: 2000,
+        autoplayHoverPause: false
+    });
+
+    // Scroll to contact form
+    $('#contact-btn').click(() => {
+        $('html, body').animate({
+            scrollTop: $('#contact').offset().top - 50
+        }, 1000);
+    });
+});
+
+
+// Transparent navbar only on home page
+if (document.querySelector('title').innerText === 'TK') {
+    const nav = document.querySelector('#nav');
+    const navbar_list = document.querySelector('#navbar-list');
+    nav.classList.toggle('transparent');
+
+    window.addEventListener('scroll', function () {
+        if (document.documentElement.clientWidth > 768) {
+            if (pageYOffset > 100) {
+                navbar_list.style.padding = '.5rem';
+                if (nav.classList.contains('transparent')) {
+                    nav.classList.toggle('transparent');
                 }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
+            } else {
+                navbar_list.style.padding = '2rem .5rem';
+                if (!nav.classList.contains('transparent')) {
+                    nav.classList.toggle('transparent');
                 }
             }
         }
-        if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            //Each time a switch is done, increase this count by 1:
-            switchcount++;
-        } else {
-            /*If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again.*/
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
+    });
+
 }
+
+

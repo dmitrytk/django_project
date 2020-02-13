@@ -1,0 +1,9 @@
+@media (max-width:768px) {
+    #row2 {
+        flex-direction: column-reverse;
+    }
+
+    .col-md {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,15 @@
+@keyframes show-top-bottom {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.show-top-bottom {
+    animation: show-top-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}

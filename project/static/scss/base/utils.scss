@@ -1,0 +1,26 @@
+.text-center {
+    text-align: center;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.transparent {
+    // background: transparentize($dark, 1) !important;
+    background: rgba(0, 0, 0, 0) !important;
+}
+
+.text-secondary {
+    color: #939393 !important;
+}
+
+@media (max-width:768px) {
+    .transparent {
+        background: $dark !important;
+    }
+}

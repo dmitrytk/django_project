@@ -1,0 +1,17 @@
+input.form-control,
+textarea.form-control {
+    border: 1px solid #ccc;
+    resize: none;
+    transition: all .3s;
+
+    &:focus {
+        border: 1px solid rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 1px 1px rgba($primary, 0.7);
+    }
+
+    &:active {
+        outline: none;
+    }
+}
+
+.form-control {}
