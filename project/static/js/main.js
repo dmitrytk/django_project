@@ -44,7 +44,7 @@ const navbar_list = document.querySelector('#navbar-list');
 const sectionNav = document.querySelector('.section-nav');
 
 // Transparent navbar only on home page
-if (document.querySelector('title').innerText === 'TK') {
+if (document.querySelector('title').innerText === 'Home') {
     navbar_list.classList.add('big-padding');
     console.log('padding added');
     window.addEventListener('scroll', function () {
