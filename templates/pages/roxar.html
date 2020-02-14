@@ -4,15 +4,14 @@
 {% block title %}| Roxar{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div id="drop_zone">Перетащите файлы
-        сюда
+    <div class="container">
+        <div id="drop_zone">Drop files here
+        </div>
+        <button class="btn btn-primary" id="calculate">Calculate</button>
     </div>
-    <button class="btn btn-primary" id="calculate">Расчитать</button>
-</div>
 {% endblock content %}
 
 
 {% block scripts %}
-<script src="{% static 'js/roxar.js' %}"></script>
+    <script src="{% static 'js/roxar.js' %}"></script>
 {% endblock scripts %}

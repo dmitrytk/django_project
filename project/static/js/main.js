@@ -1,4 +1,5 @@
 console.log('Main js is active');
+console.log('home');
 
 // Initialize animation
 AOS.init({
@@ -38,11 +39,13 @@ $(document).ready(function () {
     });
 });
 
+const nav = document.querySelector('#nav');
+const navbar_list = document.querySelector('#navbar-list');
+const sectionNav = document.querySelector('.section-nav');
 
 // Transparent navbar only on home page
 if (document.querySelector('title').innerText === 'TK') {
-    const nav = document.querySelector('#nav');
-    const navbar_list = document.querySelector('#navbar-list');
+    console.log('home');
     nav.classList.toggle('transparent');
 
     window.addEventListener('scroll', function () {
@@ -61,9 +64,8 @@ if (document.querySelector('title').innerText === 'TK') {
         }
     });
 } else {
-    const sectionNav = document.querySelector('.section-nav');
+    console.log('not home');
     sectionNav.style.position = 'static';
-    const navbar_list = document.querySelector('#navbar-list');
     navbar_list.style.padding = '.5rem';
 }
 
