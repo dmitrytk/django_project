@@ -45,18 +45,17 @@ const sectionNav = document.querySelector('.section-nav');
 
 // Transparent navbar only on home page
 if (document.querySelector('title').innerText === 'TK') {
-    console.log('home');
-    nav.classList.toggle('transparent');
-
+    navbar_list.classList.add('big-padding');
+    console.log('padding added');
     window.addEventListener('scroll', function () {
         if (document.documentElement.clientWidth > 768) {
             if (pageYOffset > 100) {
-                navbar_list.style.padding = '.5rem';
+                navbar_list.classList.remove('big-padding');
                 if (nav.classList.contains('transparent')) {
                     nav.classList.toggle('transparent');
                 }
             } else {
-                navbar_list.style.padding = '2rem .5rem';
+                navbar_list.classList.add('big-padding');
                 if (!nav.classList.contains('transparent')) {
                     nav.classList.toggle('transparent');
                 }
@@ -64,9 +63,7 @@ if (document.querySelector('title').innerText === 'TK') {
         }
     });
 } else {
-    console.log('not home');
     sectionNav.style.position = 'static';
-    navbar_list.style.padding = '.5rem';
 }
 
 
