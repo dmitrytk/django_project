@@ -11,10 +11,10 @@ def profile(request):
 @login_required
 def profile_edit(request):
     if request.method == 'POST':
-        form = CustomUserChangeForm(request.POST, instance=request.user)
+        form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('profile')
     else:
         form = CustomUserChangeForm(instance=request.user)
 

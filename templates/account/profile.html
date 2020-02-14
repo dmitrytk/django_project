@@ -6,11 +6,14 @@
 {% block content %}
     <div class="container">
         <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile_photo.url }}">
+            {% if  user.profile_photo %}
+                <img class="rounded-circluser.profile_photoe account-img" src="{{ user.profile_photo.url }}">
+            {% endif %}
             <div class="media-body">
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <p class="text-secondary">{{ user.email }}</p>
             </div>
         </div>
+        <a class="btn btn-outline-danger" href="{% url 'profile_edit' %}"> Edit profile</a>
     </div>
 {% endblock content %}

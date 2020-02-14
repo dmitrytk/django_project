@@ -32,8 +32,7 @@ INSTALLED_APPS = [
     'allauth.account',
 
     # My apps
-    'home.apps.HomeConfig',
-    'tools.apps.ToolsConfig',
+    'pages.apps.PagesConfig',
     'db.apps.DbConfig',
     'users.apps.UsersConfig',
 

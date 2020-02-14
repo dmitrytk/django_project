@@ -4,9 +4,9 @@ from django.urls import reverse
 
 class OilField(models.Model):
     name = models.CharField(max_length=100, verbose_name='Месторождение')
-    type = models.CharField(max_length=100, verbose_name='Тип')
-    location = models.CharField(max_length=100, verbose_name='Расположение')
-    owner = models.CharField(max_length=100, verbose_name='Недропользователь')
+    type = models.CharField(max_length=100, verbose_name='Тип', blank=True)
+    location = models.CharField(max_length=100, verbose_name='Расположение', blank=True)
+    owner = models.CharField(max_length=100, verbose_name='Недропользователь', blank=True)
     description = models.TextField(blank=True, verbose_name='Описание')
     obzor_img = models.ImageField(blank=True, upload_to='maps', height_field=None, width_field=None, max_length=100,
                                   verbose_name='Обзорная карта')
@@ -23,15 +23,15 @@ class Well(models.Model):
     field = models.ForeignKey(
         OilField, related_name='wells', on_delete=models.CASCADE)
 
-    type = models.CharField(max_length=100, blank=True, null=True)
+    type = models.CharField(max_length=100, blank=True)
     altitude = models.DecimalField(
-        max_digits=7, decimal_places=2, blank=True, null=True)
+        max_digits=7, decimal_places=2, blank=True)
     x = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=20, decimal_places=2, blank=True)
     y = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=20, decimal_places=2, blank=True)
     md = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=20, decimal_places=2, blank=True)
 
     class Meta:
         unique_together = ('name', 'field',)

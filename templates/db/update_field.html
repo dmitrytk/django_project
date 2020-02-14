@@ -3,12 +3,12 @@
 {% block title %}{{ field.title }}{% endblock title %}
 {% block content %}
 
-<div class="container mt-2">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Save">
-    </form>
-</div>
+    <div class="container mt-2">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Save">
+        </form>
+    </div>
 
 {% endblock content %}

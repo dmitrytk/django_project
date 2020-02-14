@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="container mt-2">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="well_data">Insert well data here</label>
+                <textarea class="form-control" name="well_data" id="well" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+
+{% endblock content %}
