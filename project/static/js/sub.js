@@ -34,7 +34,6 @@ clearBtn.addEventListener('click', clearContent);
 //  #endregion event listeners
 
 
-
 // FUNCTIONS
 //  #region drop functions
 function handleFileSelect(evt) {
@@ -50,8 +49,8 @@ function handleFileSelect(evt) {
         reader.readAsArrayBuffer(f);
         reader.onload = function (e) {
             var data = new Uint8Array(reader.result);
-            var wb = XLSX.read(data, { type: 'array' });
-            let arr = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1 });
+            var wb = XLSX.read(data, {type: 'array'});
+            let arr = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1});
             DATA = loadExcelFile(arr);
             showFileContent();
             checkControls();
@@ -62,12 +61,16 @@ function handleFileSelect(evt) {
 function handleDragOver(evt) {
     evt.stopPropagation();
     evt.preventDefault();
+    drop.classList.add('border-primary', 'text-primary');
     evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 }
 
 // Setup the dnd listeners.
-drop.addEventListener('dragover', handleDragOver, false);
 drop.addEventListener('drop', handleFileSelect, false);
+drop.addEventListener('dragover', handleDragOver, false);
+drop.addEventListener('dragleave', () => {
+    drop.classList.remove('border-primary', 'text-primary');
+});
 //  #endregion drop functions
 
 
@@ -75,15 +78,13 @@ drop.addEventListener('drop', handleFileSelect, false);
 function checkControls() {
     if (CONTENT || DATA !== 0) {
         clearBtn.disabled = false;
-    }
-    else {
+    } else {
         clearBtn.disabled = true;
     }
     if (checkInput() && checkBoxState() && DATA !== 0) {
         calculateBtn.disabled = false;
         return true;
-    }
-    else {
+    } else {
         calculateBtn.disabled = true;
         return true;
     }
@@ -94,8 +95,7 @@ function checkInput() {
     let margin = marginInput.value;
     if (!Number.isNaN(step) && !Number.isNaN(margin) && step > 0 && margin > 0) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -105,6 +105,7 @@ function clearContent() {
     document.querySelector('#chart').innerHTML = '';
     drop.innerHTML = 'Перетащите файл excel сюда';
     drop.style.color = '#bbb';
+    drop.classList.remove('border-primary', 'text-primary');
     DATA = 0;
     GRID = 0;
     CONTENT = false;
@@ -290,4 +291,5 @@ function drawPlot(grid, dt) {
     }
     Plotly.newPlot('chart', data, layout);
 }
+
 // #endregion calculate function

@@ -1,0 +1,14 @@
+#drop_zone {
+  border: 2px dashed #bbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 5px 0;
+  text-align: center;
+  font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #bbb;
+  width: 100%;
+  transition: all .3s;
+}
