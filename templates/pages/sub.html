@@ -5,8 +5,11 @@
 
 {% block content %}
     <div class="container">
+
         <h2 class="text-center py-3">Calculate drawdown caused by pumping wells</h2>
+
         <div id="drop_zone">Drop excel file here</div>
+
         <form class="form-horizontal" action="">
             <div class="row">
                 <div class="col-sm">
@@ -28,8 +31,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="form-group">
                 <div class="">
                     <div class="checkbox">
@@ -45,17 +46,15 @@
                 </div>
             </div>
         </form>
+
         <button class="btn btn-success" id="calculate" disabled>Calculate</button>
         <button class="btn btn-danger" id="del" disabled>Clear</button>
 
-        <div class="container">
-            <div id="progress_div">
-                <div id="progress"></div>
-            </div>
+        <div id="progress_div" class="mb-2">
+            <div id="progress"></div>
         </div>
-        <div class="container">
-            <div class="table-responsive" id="table">
-            </div>
+
+        <div class="table-responsive" id="table">
         </div>
         <div class="container" id="chart"></div>
     </div>

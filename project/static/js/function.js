@@ -30,6 +30,7 @@ class Well {
         this.S = [];
     }
 }
+
 // #endregion classes
 
 
@@ -38,7 +39,7 @@ function dateToString(date) {
     var mm = date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1); // getMonth() is zero-based
     var dd = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     return dd + "." + mm + '.' + yyyy;
-};
+}
 
 function excelDatetoDate(day) {
     let startDate = new Date(1900, 0, 1);
@@ -64,9 +65,9 @@ function distance(well, x, y) {
 function calcDistances(wells) {
     let array = [];
     for (let well of wells) {
-        let row = []
+        let row = [];
         for (let other_well of wells) {
-            if (well == other_well) {
+            if (well === other_well) {
                 row.push(well.r)
             } else {
                 row.push(distance(well, other_well.x, other_well.y))
@@ -77,19 +78,19 @@ function calcDistances(wells) {
     return array;
 }
 
-// delete undifined from array
+// delete undefined from array
 function deleteUndefined(array) {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
-            if (array[i][j] == undefined) array[i][j] = '';
+            if (array[i][j] === undefined) array[i][j] = '';
         }
     }
 }
 
 // Create HTML table string from 2d Array
 function arrayToTable(arr) {
-    table = '<table class="table table-sm" id="tbl"><thead class="thead-dark"><tr>'
-    for (el of arr[0]) {
+    let table = '<table class="table table-sm" id="tbl"><thead class="thead-dark"><tr>'
+    for (let el of arr[0]) {
         table += `<th>${el}</th>`
     }
     table += '</tr></thead><tbody>';
@@ -114,8 +115,8 @@ function copyToClipboard(text) {
 
 // save string to file
 function saveToFile(content, fileName) {
-    var blob = new Blob([content],
-        { type: "text/plain;charset=utf-8" });
+    let blob = new Blob([content],
+        {type: "text/plain;charset=utf-8"});
     saveAs(blob, fileName);
 }
 
@@ -128,12 +129,16 @@ function loadExcelFile(array) {
     let startDate = array[4][4];
 
     let lastCell = 0;
+    console.log(array[4]);
     for (let i = 0; i < array[4].length; i++) {
         let element = array[4][i];
-        if (i === '' || i === undefined) {
-            lastCell = i;
+        if (element === '' || element === undefined) {
+            lastCell = i - 1;
+            break;
         } else lastCell = array[4].length - 1;
     }
+    console.log(lastCell);
+
 
     for (let cell of array[4].slice(4, lastCell + 1)) {
         data.dates.push(cell - startDate);
@@ -197,15 +202,16 @@ function arrayToText(array, separator) {
         for (let row of array) {
             result += row.join(separator) + '\n';
         }
-    }
-    else result = array.join(separator);
+    } else result = array.join(separator);
     return result;
 }
 
-function toNumber(e) {
-    let result = (typeof e === 'string') ? Number(e.replace(',', '.').replace(/ /g, '')) : Number(e);
-    return result;
-}
+const toNumber = el => (typeof el === 'string') ? Number(el.replace(',', '.').replace(/ /g, '')) : Number(el);
+
+// function toNumber(e) {
+//     let result = (typeof e === 'string') ? Number(e.replace(',', '.').replace(/ /g, '')) : Number(e);
+//     return result;
+// }
 
 function scrollToElement(selector) {
     // $('html, body').animate({

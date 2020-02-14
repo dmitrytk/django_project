@@ -45,11 +45,11 @@ function handleFileSelect(evt) {
 
     let f = files[0];
     if (f.name.includes('xlsx')) {
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.readAsArrayBuffer(f);
         reader.onload = function (e) {
-            var data = new Uint8Array(reader.result);
-            var wb = XLSX.read(data, {type: 'array'});
+            let data = new Uint8Array(reader.result);
+            let wb = XLSX.read(data, {type: 'array'});
             let arr = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1});
             DATA = loadExcelFile(arr);
             showFileContent();
