@@ -1,18 +1,20 @@
 {% extends '_base.html' %}
 {% load static %}
 
-{% block title %}| Расстояния{% endblock %}
+{% block title %}Distance{% endblock %}
 
 {% block content %}
-<div class="container">
-    <textarea placeholder="WELL X Y" class="area" id="txt-area" rows="4" cols="50"></textarea>
-    <button class=" btn btn-danger" id='clear'>Очистить</button>
-    <div class="table-responsive" id="table-div">
+    <div class="container">
+        <h2 class="text-center my-2">Calculate distance betnween wells</h2>
+        <textarea placeholder="WELL X Y" class="area m-0 mb-2 text-center p-2" id="txt-area" rows="4"
+                  cols="50"></textarea>
+        <button class=" btn btn-danger" id='clear'>Clear</button>
+        <div class="table-responsive" id="table-div">
+        </div>
     </div>
-</div>
 {% endblock content %}
 
 
 {% block scripts %}
-<script src="{% static 'js/distance.js' %}"></script>
+    <script src="{% static 'js/distance.js' %}"></script>
 {% endblock scripts %}

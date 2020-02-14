@@ -1,32 +1,35 @@
 {% extends '_base.html' %}
 {% load static %}
 
-{% block title %}| Калькулятор воды{% endblock %}
+{% block title %}Water calc{% endblock %}
 
 {% block content %}
-<div class="cont">
-    <form id="water-form">
-        <div class="form-group">
-            <label> <strong>Минерализация, г/л</strong></label>
-            <input onkeyup="calcParameters()" type="number" class="form-control" id="salinity">
+    <div class="container">
+        <h2 class="text-center py-3">Water calculator</h2>
+        <div class="form-container">
+            <form id="water-form">
+                <div class="form-group">
+                    <label> <strong>Mineralization, g/l</strong></label>
+                    <input onkeyup="calcParameters()" type="number" class="form-control" id="salinity">
+                </div>
+                <div class="form-group">
+                    <label><strong>Temperature, &deg;C</strong></label>
+                    <input onkeyup="calcParameters()" type="number" class="form-control" id="temperature">
+                </div>
+                <div class="form-group">
+                    <label><strong>Viscosity, sPz</strong></label>
+                    <input type="number" class="form-control" id="viscosity" disabled="true">
+                </div>
+                <div class="form-group">
+                    <label><strong>Density, g/sm3<sup>3</sup></strong></label>
+                    <input type="number" class="form-control" id="density" disabled="true">
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label><strong>Температура, &deg;C</strong></label>
-            <input onkeyup="calcParameters()" type="number" class="form-control" id="temperature">
-        </div>
-        <div class="form-group">
-            <label><strong>Вязкость, сПз</strong></label>
-            <input type="number" class="form-control" id="viscosity" disabled="true">
-        </div>
-        <div class="form-group">
-            <label><strong>Плотность, г/см<sup>3</sup></strong></label>
-            <input type="number" class="form-control" id="density" disabled="true">
-        </div>
-    </form>
-</div>
+    </div>
 {% endblock content %}
 
 
 {% block scripts %}
-<script src="{% static 'js/water.js' %}"></script>
+    <script src="{% static 'js/water.js' %}"></script>
 {% endblock scripts %}
