@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class OilField(models.Model):
-    field = models.CharField(max_length=100, verbose_name='Oil field')
+    name = models.CharField(max_length=100, verbose_name='Oil field')
     type = models.CharField(max_length=100, verbose_name='Type', blank=True)
     location = models.CharField(max_length=100, verbose_name='Location', blank=True)
     owner = models.CharField(max_length=100, verbose_name='Owner', blank=True)
@@ -12,28 +12,28 @@ class OilField(models.Model):
                             verbose_name='Map')
 
     def __str__(self):
-        return self.field
+        return self.name
 
     # def get_absolute_url(self):  # new
     #     return reverse('field_detail', args=[str(self.id)])
 
 
 class Well(models.Model):
-    well = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     field = models.ForeignKey(
         OilField, related_name='wells', on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True)
     alt = models.DecimalField(
-        max_digits=7, decimal_places=2, blank=True)
+        max_digits=7, decimal_places=2, blank=True, null=True)
     md = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True)
+        max_digits=20, decimal_places=2, blank=True, null=True)
     x = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True)
+        max_digits=20, decimal_places=2, blank=True, null=True)
     y = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True)
+        max_digits=20, decimal_places=2, blank=True, null=True)
 
     class Meta:
         unique_together = ('name', 'field',)
 
     def __str__(self):
-        return self.well
+        return self.name
