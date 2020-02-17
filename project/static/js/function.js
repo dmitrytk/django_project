@@ -116,7 +116,7 @@ function copyToClipboard(text) {
 // save string to file
 function saveToFile(content, fileName) {
     let blob = new Blob([content],
-        {type: "text/plain;charset=utf-8"});
+        { type: "text/plain;charset=utf-8" });
     saveAs(blob, fileName);
 }
 

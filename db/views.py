@@ -4,8 +4,8 @@ from django.forms.models import model_to_dict
 from django.contrib.auth.decorators import login_required
 
 from .forms import FieldUpdateForm
-from .models import OilField
-from .utils import upload_wells
+from .models import OilField, Well
+from .utils import upload_wells, upload_fields
 
 
 class FieldView(ListView):
@@ -14,13 +14,18 @@ class FieldView(ListView):
     context_object_name = 'fields'
 
 
+class WellView(ListView):
+    model = Well
+    template_name = 'db/wells.html'
+    context_object_name = 'wells'
+
+
 class DetailFieldView(DetailView):
     model = OilField
     template_name = 'db/field_detail.html'
     context_object_name = 'field'
 
 
-@login_required
 def edit_field(request, pk):
     field = get_object_or_404(OilField, pk=pk)
     if request.method == 'POST':
@@ -33,8 +38,13 @@ def edit_field(request, pk):
     return render(request, 'db/update_field.html', {'form': form, 'field': field})
 
 
-@login_required
-def well_load(request):
+def load_wells(request):
     if request.method == 'POST':
-        upload_wells(request.POST.get('well_data'))
-    return render(request, 'db/well_load.html')
+        upload_wells(request.POST.get('well-data'))
+    return render(request, 'db/load_wells.html')
+
+
+def load_fields(request):
+    if request.method == 'POST':
+        upload_fields(request.POST.get('field-data'))
+    return render(request, 'db/load_fields.html')

@@ -5,36 +5,53 @@
 
 
 {% block content %}
-<div class="container">
-    <h2 class="text-center my-3">Oil fields database</h2>
-    <table class="table" id="data-table">
-        <thead class="thead-dark">
-            <tr data-toggle="collapse" data-target="#accordion" class="clickable">
-                <th onclick="sortTable(this)">Field</th>
-                <th onclick="sortTable(this)">Type</th>
-                <th onclick="sortTable(this)">Location</th>
-                <th onclick="sortTable(this)">Owner</th>
-                <th onclick="sortTable(this)">Map</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for field in fields %}
-            <tr>
-                <td>
-                    <a href="{% url 'field_detail' field.id %}">{{field.name}}</td></a>
-                <td>{{field.type}}</td>
-                <td>{{field.location}}</td>
-                <td>{{field.owner}}</td>
-                <td>
-                    {% if field.obzor_img%}
-                    <a href="{{ field.obzor_img.url }}"><img class="obzor-min" src="{{ field.obzor_img.url }}" /></a>
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+    <div class="container">
+        <h2 class="text-center my-3">Oil fields database</h2>
+        <div class="row">
+            <div class="col-sm-8">
+                <table class="table" id="fields-table">
+                    <thead class="thead-dark">
+                    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Owner</th>
+                        <th>Map</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for field in fields %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'field_detail' field.id %}">{{ field.name }}</td>
+                            </a>
+                            <td>{{ field.type }}</td>
+                            <td>{{ field.location }}</td>
+                            <td>{{ field.owner }}</td>
+                            <td>
+                                {% if field.obzor_img %}
+                                    <a href="{{ field.obzor_img.url }}"><img class="obzor-min"
+                                                                             src="{{ field.obzor_img.url }}"/></a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-3">
+                <div id="db-controls" class="card text-center">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#"><i class="fas fa-plus-circle"></i> Add field</a></li>
+                        <li class="list-group-item"><a href="{% url 'load-fields' %}"><i class="fas fa-download"></i>
+                            Load fields</a></li>
+                        <li class="list-group-item"><a href="#"> <i class="fas fa-trash-alt"></i> Delete fields</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
 {% endblock content %}
 
 

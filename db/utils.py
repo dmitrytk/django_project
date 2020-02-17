@@ -2,11 +2,11 @@ from django.db import IntegrityError
 from .models import OilField, Well
 
 
-def upload_wells(well_data):
-    well_data = well_data.replace('\r', '')
+def upload_wells(wells_data):
+    wells_data = wells_data.replace('\r', '')
     fields = OilField.objects.all()
     fields_dict = {field.name: field for field in fields}
-    rows = well_data.split('\n')
+    rows = wells_data.split('\n')
 
     if len(rows) > 1:
         header = rows[0].split('\t')
@@ -37,3 +37,7 @@ def upload_wells(well_data):
                 well.save()
             except IntegrityError as e:
                 pass
+
+
+def upload_fields(fields_data):
+    pass
