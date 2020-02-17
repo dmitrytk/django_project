@@ -2,38 +2,38 @@
 {% block title %}{{ field.title }}{% endblock title %}
 {% block content %}
 
-<div class="container">
-    <div class="col-lg-8">
+    <div class="container">
+        <div class="col-lg-8">
 
-        <!-- Title -->
-        <h1 class="mt-4">{{ field.name }} {{ field.type }} месторождение</h1>
+            <!-- Title -->
+            <h1 class="mt-4">{{ field.name }} {{ field.type }} месторождение</h1>
 
 
-        <hr>
+            <hr>
 
-        <!-- Date/Time -->
-        <p> <strong>Недропользователь: </strong>{{ field.owner }}</p>
-        <p> <strong>Местонахождение: </strong>{{ field.location }}</p>
-        <hr>
+            <!-- Date/Time -->
+            <p><strong>Недропользователь: </strong>{{ field.owner }}</p>
+            <p><strong>Местонахождение: </strong>{{ field.location }}</p>
+            <hr>
 
-        <!-- Image -->
-        {% if field.obzor_img%}
-        <img class="mx-auto obzor-full" src="{{ field.obzor_img.url }}" alt="">
+            <!-- Image -->
+            {% if field.map %}
+                <img class="mx-auto obzor-full" src="{{ field.map.url }}" alt="">
+            {% endif %}
+
+            <hr>
+
+            <!-- Description -->
+
+            <p>{{ field.description }}</p>
+
+        </div>
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <hr>
+                <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
+            {% endif %}
         {% endif %}
-
-        <hr>
-
-        <!-- Description -->
-
-        <p>{{ field.description }}</p>
-
     </div>
-    {% if user.is_authenticated %}
-    {% if user.is_superuser %}
-    <hr>
-    <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
-    {% endif %}
-    {% endif %}
-</div>
 
 {% endblock content %}

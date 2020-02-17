@@ -3,38 +3,37 @@ from django.urls import reverse
 
 
 class OilField(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Месторождение')
-    type = models.CharField(max_length=100, verbose_name='Тип', blank=True)
-    location = models.CharField(max_length=100, verbose_name='Расположение', blank=True)
-    owner = models.CharField(max_length=100, verbose_name='Недропользователь', blank=True)
-    description = models.TextField(blank=True, verbose_name='Описание')
-    obzor_img = models.ImageField(blank=True, upload_to='maps', height_field=None, width_field=None, max_length=100,
-                                  verbose_name='Обзорная карта')
+    field = models.CharField(max_length=100, verbose_name='Oil field')
+    type = models.CharField(max_length=100, verbose_name='Type', blank=True)
+    location = models.CharField(max_length=100, verbose_name='Location', blank=True)
+    owner = models.CharField(max_length=100, verbose_name='Owner', blank=True)
+    description = models.TextField(blank=True, verbose_name='Description')
+    map = models.ImageField(blank=True, upload_to='maps', height_field=None, width_field=None, max_length=100,
+                            verbose_name='Map')
 
     def __str__(self):
-        return self.name
+        return self.field
 
     # def get_absolute_url(self):  # new
     #     return reverse('field_detail', args=[str(self.id)])
 
 
 class Well(models.Model):
-    name = models.CharField(max_length=100)
+    well = models.CharField(max_length=100)
     field = models.ForeignKey(
         OilField, related_name='wells', on_delete=models.CASCADE)
-
     type = models.CharField(max_length=100, blank=True)
-    altitude = models.DecimalField(
+    alt = models.DecimalField(
         max_digits=7, decimal_places=2, blank=True)
+    md = models.DecimalField(
+        max_digits=20, decimal_places=2, blank=True)
     x = models.DecimalField(
         max_digits=20, decimal_places=2, blank=True)
     y = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True)
-    md = models.DecimalField(
         max_digits=20, decimal_places=2, blank=True)
 
     class Meta:
         unique_together = ('name', 'field',)
 
     def __str__(self):
-        return self.name
+        return self.well
