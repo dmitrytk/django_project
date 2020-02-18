@@ -8,8 +8,10 @@ AOS.init({
 });
 
 $(document).ready(function () {
-    $('#wells-table').DataTable();
-    $('#fields-table').DataTable();
+    $('#data-table').DataTable({
+        responsive: true
+    });
+
     // Initialize owl carousel
     $(".owl-carousel").owlCarousel({
         loop: true,

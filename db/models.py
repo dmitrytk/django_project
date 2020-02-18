@@ -24,13 +24,13 @@ class Well(models.Model):
         OilField, related_name='wells', on_delete=models.CASCADE)
     type = models.CharField(max_length=100, blank=True)
     alt = models.DecimalField(
-        max_digits=7, decimal_places=2, blank=True, null=True)
+        max_digits=30, decimal_places=2, blank=True, null=True)
     md = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=30, decimal_places=2, blank=True, null=True)
     x = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=30, decimal_places=2, blank=True, null=True)
     y = models.DecimalField(
-        max_digits=20, decimal_places=2, blank=True, null=True)
+        max_digits=30, decimal_places=2, blank=True, null=True)
 
     class Meta:
         unique_together = ('name', 'field',)

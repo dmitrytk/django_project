@@ -26,14 +26,9 @@
             <!-- Description -->
 
             <p>{{ field.description }}</p>
-
+            <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
         </div>
-        {% if user.is_authenticated %}
-            {% if user.is_superuser %}
-                <hr>
-                <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
-            {% endif %}
-        {% endif %}
+
     </div>
 
 {% endblock content %}
