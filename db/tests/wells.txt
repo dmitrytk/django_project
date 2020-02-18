@@ -1,0 +1,9 @@
+well	field	alt	md	x	y
+12R	Upper-Salym	56	3200	15320	50675   ewewe
+13R	Upper-Salym	57	3150		50960
+14R	West-Salym		3230	15878	50470
+1W	West-Salym	60,2	1800	15396	50788
+2W	West-Salym	60,4	1780	15573	50643
+erer
+
+   rerer  rer er some random    text
