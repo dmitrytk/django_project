@@ -1,18 +1,6 @@
-valid_columns = [
-    'field',
-    'name',
-    'type',
-    'location',
-    'owner',
-    'well',
-    'alt',
-    'md',
-    'x',
-    'y'
-]
 float_types = ['x', 'y', 'alt', 'md']
 
-columns = {
+valid_columns = {
     'field': [
         'field',
         'месторождение',

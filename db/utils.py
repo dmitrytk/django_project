@@ -1,5 +1,5 @@
 from .models import OilField, Well
-from .columns import columns, valid_columns, float_types
+from .columns import float_types
 import time
 
 
@@ -34,15 +34,15 @@ def get_table(content):
     return header, body
 
 
-def prepare_header(header, columns, required_columns, wells_load=True):
+def prepare_header(header, valid_columns, required_columns, wells_load=True):
     # Change column names
     for index, col in enumerate(header):
-        for key in columns:
-            if col.lower() in columns[key]:
+        for key in valid_columns:
+            if col.lower() in valid_columns[key]:
                 header[index] = key
     print(header)
-    # check if all columns is valid
-    if all([col in columns for col in header]) and all([col in header for col in required_columns]):
+    # check if all valid_columns is valid
+    if all([col in valid_columns for col in header]) and all([col in header for col in required_columns]):
         if wells_load:
             header[header.index('well')] = 'name'
         else:
