@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import FieldUpdateForm
 from .models import OilField, Well
-from .utils import upload_wells, upload_fields
+from .load import upload_wells, upload_fields
 
 
 class FieldView(ListView):
@@ -41,6 +41,7 @@ def edit_field(request, pk):
 def load_wells(request):
     if request.method == 'POST':
         upload_wells(request.POST.get('well-data'))
+        return redirect('wells')
     return render(request, 'db/load_wells.html')
 
 
