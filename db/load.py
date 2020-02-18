@@ -12,6 +12,7 @@ def upload_wells(wells_data):
             wells = create_well_list(df)
             if len(wells) > 0:
                 Well.objects.bulk_create(wells, ignore_conflicts=True)
+                Well.objects.bulk_update(wells, ['x', 'y'])
                 print('\n\n\nSUCCESS\n\n\n')
 
 
