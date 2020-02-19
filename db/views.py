@@ -47,5 +47,6 @@ def load_wells(request):
 
 def load_fields(request):
     if request.method == 'POST':
-        upload_fields(request.POST.get('field-data'))
+        # upload_fields(request.POST.get('field-data'))
+        print(request.POST.get('option-1'))
     return render(request, 'db/load_fields.html')

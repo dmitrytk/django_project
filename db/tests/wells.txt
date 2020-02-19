@@ -1,9 +1,14 @@
-well	field	alt	md	x	y
-12R	Upper-Salym	56	3200	15320	50675   ewewe
-13R	Upper-Salym	57	3150		50960
-14R	West-Salym		3230	15878	50470
-1W	West-Salym	60,2	1800	15396	50788
-2W	West-Salym	60,4	1780	15573	50643
-erer
-
-   rerer  rer er some random    text
+	well	field	alt	type	x	y   			          
+	1051	Ваделыпское	78.15	water	12616179.88	6678139.15		   cxcxcx
+	1041	Ваделыпское	78.15	water	12616179.78	6678142.25					
+	1050	Ваделыпское	78.15	water	12616179.58	6678148.43		 dsdsdsd			
+	1042	Ваделыпское	78.15	water	12,616179.38	6678154.62					
+	1032	Ваделыпское	78.15	water	12616178.89	6678170.09		sd						   dded			
+	51128	Ваделыпское	81.68	water	12616732.32	6674929.64					
+											
+											
+									klklk		kjljkljk
+											
+											
+											   hjhjgh
+			sd								

@@ -1,6 +1,9 @@
 float_types = ['x', 'y', 'alt', 'md']
 
 valid_columns = {
+    'name': [
+        999.999
+    ],
     'field': [
         'field',
         'месторождение',

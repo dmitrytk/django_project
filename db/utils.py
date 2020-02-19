@@ -19,18 +19,11 @@ def validate_string(content):
 
 def get_table(content):
     """Get header (list) and body (2d list) from input string"""
-    rows = content.split('\n')
-
-    header = rows[0].strip().split('\t')
+    content = content.replace('\r', '')
+    rows = [row.strip().split('\t') for row in content.split('\n')]
+    header = rows[0]
     header_length = len(header)
-
-    body = []
-    for row in rows[1:]:
-        r = row.strip().split('\t')
-        if len(r) == header_length:
-            body.append(r)
-
-    print(body)
+    body = [row[:header_length] for row in rows[1:] if len(row) >= header_length]
     return header, body
 
 
@@ -40,9 +33,8 @@ def prepare_header(header, valid_columns, required_columns, wells_load=True):
         for key in valid_columns:
             if col.lower() in valid_columns[key]:
                 header[index] = key
-    print(header)
     # check if all valid_columns is valid
-    if all([col in valid_columns for col in header]) and all([col in header for col in required_columns]):
+    if all([col in header for col in required_columns]):
         if wells_load:
             header[header.index('well')] = 'name'
         else:
@@ -56,11 +48,18 @@ def create_df(header, body, float_columns=float_types):
     """Create dataframe from header and body"""
     df = {}
     for index, col in enumerate(header):
-        df[col] = [row[index] for row in body]
-    for col in df:
         if col in float_columns:
-            df[col] = [_to_float(i) for i in df[col]]
+            df[col] = [_to_float(row[index]) for row in body]
+        else:
+            df[col] = [row[index] for row in body]
+
     return df
+
+
+def delete_excess_cols(df, valid_columns):
+    for col in list(df):
+        if col not in valid_columns:
+            del df[col]
 
 
 def create_well_list(df):
@@ -106,4 +105,4 @@ def create_well_list(df):
                     setattr(well, attr, df[attr][index])
             new_wells.append(well)
 
-    return new_wells, old_wells
+    return new_wells
