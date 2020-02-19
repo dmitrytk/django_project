@@ -1,3 +1,5 @@
+from django.db import IntegrityError
+
 from .models import OilField, Well
 from .columns import float_types
 import time
@@ -62,7 +64,7 @@ def delete_excess_cols(df, valid_columns):
             del df[col]
 
 
-def create_well_list(df):
+def create_wells_list(df):
     """List of Well model from dataframe"""
     # load fields from db
     fields = OilField.objects.all()
@@ -106,3 +108,21 @@ def create_well_list(df):
             new_wells.append(well)
 
     return new_wells
+
+
+def save_fields(df):
+    """List of Well model from dataframe"""
+    # load fields from db
+    start = time.time()
+    counter = 0
+    for index, row in enumerate(df['name']):
+        field_name = df['name'][index]
+        if field_name.strip() != '' and field_name is not None:
+            field, created = OilField.objects.get_or_create(name=field_name)
+            for attr in df:
+                if attr != 'name':
+                    setattr(field, attr, df[attr][index])
+            print(f'{field.name} is saved')
+            counter += 1
+            field.save()
+    print(f'\n\nTIME ELAPSED{time.time() - start} SEC on {counter} fields\n\n')

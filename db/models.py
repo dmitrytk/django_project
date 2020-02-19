@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class OilField(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Oil field')
+    name = models.CharField(max_length=100, verbose_name='Oil field', unique=True)
     type = models.CharField(max_length=100, verbose_name='Type', blank=True)
     location = models.CharField(max_length=100, verbose_name='Location', blank=True)
     owner = models.CharField(max_length=100, verbose_name='Owner', blank=True)
