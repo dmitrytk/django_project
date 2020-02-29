@@ -76,6 +76,7 @@
                             <div class="dropdown-menu show-top-bottom" aria-labelledby="navbarDropdown">
                                 {% if user.is_superuser %}
                                     <a class="dropdown-item text-danger" href="{% url 'admin:index' %}">Admin</a>
+                                    <a class="dropdown-item" href="{% url 'messages' %}">Messages</a>
                                 {% endif %}
                                 <a class="dropdown-item" href="{% url 'account_change_password' %}">Change password</a>
                                 <a class="dropdown-item" href="{% url 'account_logout' %}">Log out</a>

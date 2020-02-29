@@ -133,23 +133,25 @@
         <div class="container-md">
             <h2 class="text-center mb-3 text-uppercase">Contact me</h2>
             <div class="form-container">
-                <form>
+                <form method="post">
+                    {% csrf_token %}
                     <div class="form-row mb-3">
                         <div class="col-md">
                             <div class="from-group">
-                                <input type="text" class="form-control" id="name" required placeholder="Name">
+                                <input type="text" class="form-control" name="name" id="name" required
+                                       placeholder="Name">
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="from-group">
-                                <input type="email" class="form-control" id="email" required
+                                <input type="email" name="email" class="form-control" id="email" required
                                        aria-describedby="emailHelp"
                                        placeholder="Email">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                    <textarea id="message" class="form-control" rows="8" required placeholder="Message"
+                    <textarea id="message" name="message" class="form-control" rows="8" required placeholder="Message"
                               aria-label="With textarea"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-0">Send Message</button>

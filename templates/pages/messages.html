@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+    <div class="container-sm">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for message in messages %}
+                <tr>
+                    <td>{{ message.name }}</td>
+                    <td>{{ message.email }}</td>
+                    <td><a href="{% url 'message' message.pk %}">{{ message.message }} </a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

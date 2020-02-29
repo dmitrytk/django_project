@@ -23,8 +23,8 @@
                     {% for field in fields %}
                         <tr>
                             <td>
-                                <a href="{% url 'field_detail' field.id %}">{{ field.name }}</td>
-                            </a>
+                                <a href="{% url 'field_detail' field.id %}">{{ field.name }}</a>
+                            </td>
                             <td>{{ field.type }}</td>
                             <td>{{ field.location }}</td>
                             <td>{{ field.owner }}</td>
