@@ -7,3 +7,9 @@ class FieldUpdateForm(forms.ModelForm):
         model = OilField
         fields = ('name', 'type', 'location', 'owner', 'map')
         # exclude = []  # all fields
+
+
+class FieldCreateForm(forms.ModelForm):
+    class Meta:
+        model = OilField
+        fields = ('name', 'type', 'location', 'owner', 'map')

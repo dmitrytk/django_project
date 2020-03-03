@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.forms.models import model_to_dict
 from django.contrib.auth.decorators import login_required
 
-from .forms import FieldUpdateForm
+from .forms import FieldUpdateForm, FieldCreateForm
 from .models import OilField, Well
 from .load import upload_wells, upload_fields
 
@@ -50,3 +50,14 @@ def load_fields(request):
         # upload_fields(request.POST.get('field-data'))
         print(request.POST.get('option-1'))
     return render(request, 'db/load_fields.html')
+
+
+def add_field(request):
+    if request.method == 'POST':
+        form = FieldCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('fields')
+    else:
+        form = FieldUpdateForm()
+    return render(request, 'db/add_field.html', {'form': form})
