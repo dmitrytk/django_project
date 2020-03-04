@@ -7,11 +7,11 @@
 
 {% block content %}
 <!-- ==========================================SHOWCASE===================================================== -->
-<section class="showcase mb-5">
+<section class="showcase mb-4">
     <div class="showcase-content">
         <h1 data-aos="fade-down">Hello! I'am Dmitry Takkand.</h1>
         <h5 data-aos="fade-up">Professional geologist, hobbyist Python/Java developer.</h5>
-        <h5 class="mb-4" data-aos="fade-up">Welcome to my sandox site, where I try my skills in web development</h5>
+        <h5 class="mb-2" data-aos="fade-up">Welcome to my sandox site, where I try my skills in web development</h5>
         <div data-aos="fade-up" data-aos-delay="200"><a id="contact-btn" href="#" class="btn btn-primary big">Contact
                 me</a>
         </div>
@@ -19,39 +19,39 @@
 </section>
 
 <!-- ============================================TOOLS====================================================== -->
-<section class="tools mt-5 mb-1">
+<section class="tools mb-2">
     <div class="container">
-        <h2 class="h2 text-center mb-5 text-uppercase">Tools</h2>
+        <h2 class="h2 text-center mb-4 text-uppercase">Tools</h2>
         <div class="row">
-            <div class="col-md mb-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="col-md mb-3" data-aos="fade-up" data-aos-delay="0">
                 <div class="card">
                     <div class="card-img" id="calculator"></div>
                     <div class="card-body">
                         <h4 class="card-title">Water calculator</h4>
                         <p class="card-text text-secondary">Get water density and viscosity based on
                             temperature and salinity</p>
-                        <a href="{% url 'water' %}" class=" btn btn-outline-primary">Calculate</a>
+                        <a href="{% url 'water' %}" class=" btn btn-outline-primary mb-0">Calculate</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md mb-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="card">
                     <div class="card-img" id="water"></div>
                     <div class="card-body">
                         <h4 class="card-title">Drawdown</h4>
                         <p class="card-text text-secondary">Computing drawdown caused by pumping well</p>
-                        <a href="{% url 'sub' %}" class=" btn btn-outline-primary">Compute</a>
+                        <a href="{% url 'sub' %}" class=" btn btn-outline-primary mb-0">Compute</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-md mb-3" data-aos="fade-up" data-aos-delay="400">
                 <div class="card">
                     <div class="card-img" id="distance"></div>
                     <div class="card-body">
                         <h4 class="card-title">Distance</h4>
                         <p class="card-text text-secondary">Calculate distance between wells and points on surface
                         </p>
-                        <a href="{% url 'distance' %}" class=" btn btn-outline-primary">Measure</a>
+                        <a href="{% url 'distance' %}" class=" btn btn-outline-primary mb-0">Measure</a>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@
 </section>
 
 <!-- ==============================================DB======================================================== -->
-<section class="db mb-5">
+<section class="db mb-4">
     <div class="container">
-        <h2 class="text-uppercase text-center mb-5">Databases</h2>
+        <h2 class="text-uppercase text-center mb-4">Databases</h2>
         <div id="row1" class="row mb-5">
             <div class="col-md" data-aos="fade-right">
                 <img src="{% static 'img/db/well.jpg' %}" class="img-fluid rounded-sm" alt="Image">
@@ -91,9 +91,9 @@
 </section>
 <!-- ============================================CAROUSEL==================================================== -->
 <section>
-    <h2 class="text-uppercase text-center my-5">Work with</h2>
+    <h2 class="text-uppercase text-center my-4">Work with</h2>
     <div class="container-fluid carousel">
-        <div class="owl-carousel py-5">
+        <div class="owl-carousel py-4">
             <div>
                 <a href="https://www.gazprom.ru/">
                     <img src="{% static 'img/companies/gazprom.jpg' %}" alt="gazprom" srcset="">
@@ -146,9 +146,9 @@
 
 
 <!-- ============================================CONTACT====================================================== -->
-<section id="contact" class="contact my-5">
+<section id="contact" class="contact my-4">
     <div class="container-md">
-        <h2 class="text-center mb-5 text-uppercase">Contact me</h2>
+        <h2 class="text-center mb-4 text-uppercase">Contact me</h2>
         <div class="form-container">
             <form method="post">
                 {% csrf_token %}
