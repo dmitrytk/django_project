@@ -17,23 +17,32 @@
                         <th>Location</th>
                         <th>Owner</th>
                         <th>Map</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for field in fields %}
                         <tr>
                             <td>
-                                <a href="{% url 'field_detail' field.id %}">{{ field.name }}</a>
+                                <a href="{% url 'field-detail' field.id %}">{{ field.name }}</a>
                             </td>
                             <td>{{ field.type }}</td>
                             <td>{{ field.location }}</td>
                             <td>{{ field.owner }}</td>
                             <td>
                                 {% if field.map %}
-                                    <a href="{{ field.map.url }}"><img class="obzor-min"
-                                                                       src="{{ field.map.url }}"/></a>
+                                    <a href="{{ field.map.url }}"><img class="obzor-min" src="{{ field.map.url }}"/></a>
                                 {% endif %}
                             </td>
+                            <td>
+                                <a href="{% url 'field-edit' field.id %}"><i
+                                        class="fas fa-edit"></i></a>
+                                <span>&nbsp;</span>
+                                <a class="text-primary" href="{% url 'field-delete' field.id %}"><i
+                                        class="fas fa-trash"></i></a>
+
+                            </td>
+
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -42,11 +51,12 @@
             <div class="col-md">
                 <div id="db-controls" class="card text-center">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="{% url 'add-field' %}"><i class="fas fa-plus-circle"></i>
+                        <li class="list-group-item"><a href="{% url 'field-add' %}"><i
+                                class="fas fa-plus-circle"></i>
                             Add field</a></li>
-                        <li class="list-group-item"><a href="{% url 'load-fields' %}"><i class="fas fa-download"></i>
+                        <li class="list-group-item"><a href="{% url 'fields-load' %}"><i
+                                class="fas fa-download"></i>
                             Load fields</a></li>
-                        <li class="list-group-item"><a href="#"> <i class="fas fa-trash-alt"></i> Delete fields</a></li>
                     </ul>
                 </div>
             </div>

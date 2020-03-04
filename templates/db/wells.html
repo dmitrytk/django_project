@@ -26,11 +26,31 @@
                         <tr>
                             <td>{{ well.name }}</td>
                             <td>{{ well.field }}</td>
-                            <td>{{ well.type }}</td>
-                            <td>{{ well.alt }}</td>
-                            <td>{{ well.md }}</td>
-                            <td>{{ well.x }}</td>
-                            <td>{{ well.y }}</td>
+                            <td>
+                                {% if well.type %}
+                                    {{ well.type }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if well.alt %}
+                                    {{ well.alt }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if well.md %}
+                                    {{ well.md }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if well.x %}
+                                    {{ well.x }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if well.y %}
+                                    {{ well.y }}
+                                {% endif %}
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -40,11 +60,11 @@
             <div class="col-md">
                 <div id="db-controls" class="card text-center">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#"><i class="fas fa-plus-circle"></i> Add well</a></li>
-                        <li class="list-group-item"><a href="{% url 'load-wells' %}"><i class="fas fa-download"></i>
+                        <li class="list-group-item"><a href="{% url 'well-add' %}"><i class="fas fa-plus-circle"></i>
+                            Add well</a></li>
+                        <li class="list-group-item"><a href="{% url 'wells-load' %}"><i class="fas fa-download"></i>
                             Load
                             wells</a></li>
-                        <li class="list-group-item"><a href="#"> <i class="fas fa-trash-alt"></i> Delete wells</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,9 +1,10 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, DeleteView
 from django.shortcuts import redirect, render, get_object_or_404
 from django.forms.models import model_to_dict
 from django.contrib.auth.decorators import login_required
 
-from .forms import FieldUpdateForm, FieldCreateForm
+from .forms import FieldUpdateForm, FieldCreateForm, WellCreateForm
 from .models import OilField, Well
 from .load import upload_wells, upload_fields
 
@@ -26,6 +27,12 @@ class DetailFieldView(DetailView):
     context_object_name = 'field'
 
 
+class DeleteFieldView(DeleteView):
+    model = OilField
+    template_name = 'db/field_delete.html'
+    success_url = reverse_lazy('fields')
+
+
 def edit_field(request, pk):
     field = get_object_or_404(OilField, pk=pk)
     if request.method == 'POST':
@@ -35,21 +42,21 @@ def edit_field(request, pk):
             return redirect('fields')
     else:
         form = FieldUpdateForm(instance=field)
-    return render(request, 'db/update_field.html', {'form': form, 'field': field})
+    return render(request, 'db/field_edit.html', {'form': form, 'field': field})
 
 
 def load_wells(request):
     if request.method == 'POST':
         upload_wells(request.POST.get('well-data'))
         return redirect('wells')
-    return render(request, 'db/load_wells.html')
+    return render(request, 'db/wells_load.html')
 
 
 def load_fields(request):
     if request.method == 'POST':
         # upload_fields(request.POST.get('field-data'))
         print(request.POST.get('option-1'))
-    return render(request, 'db/load_fields.html')
+    return render(request, 'db/fields_load.html')
 
 
 def add_field(request):
@@ -59,5 +66,16 @@ def add_field(request):
             form.save()
             return redirect('fields')
     else:
-        form = FieldUpdateForm()
-    return render(request, 'db/add_field.html', {'form': form})
+        form = FieldCreateForm()
+    return render(request, 'db/field_add.html', {'form': form})
+
+
+def add_well(request):
+    if request.method == 'POST':
+        form = WellCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('wells')
+    else:
+        form = WellCreateForm()
+    return render(request, 'db/well_add.html', {'form': form})

@@ -1,31 +1,4 @@
 .table-container {
-    width: 100%;
-    min-height: 500px;
-}
-
-#table_id_length>label>select {
-    box-shadow: none;
-}
-
-#table_id_paginate>ul>li.paginate_button.page-item.active>a {
-    background: $primary;
-    border: 1px solid $primary;
-    outline: none;
-    color: #fff;
-}
-
-#table_id_paginate>ul>li.paginate_button.page-item.disabled>a {
-    color: #aaa;
-}
-
-#table_id_paginate>ul>li.paginate_button.page-item>a {
-    color: $primary;
-
-    &:focus {
-        box-shadow: none;
-    }
-}
-
-#table_id_paginate>ul>li.page-item>a {
-    color: #000;
+  width: 100%;
+  min-height: 500px;
 }

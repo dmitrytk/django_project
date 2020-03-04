@@ -6,27 +6,33 @@
         <div class="col-lg-8">
 
             <!-- Title -->
-            <h1 class="mt-4">{{ field.name }} {{ field.type }} месторождение</h1>
-
-
+            <h1 class="mt-4">{{ field.name }} {{ field.type }} field</h1>
             <hr>
 
             <!-- Date/Time -->
-            <p><strong>Недропользователь: </strong>{{ field.owner }}</p>
-            <p><strong>Местонахождение: </strong>{{ field.location }}</p>
-            <hr>
+            {% if field.owner %}
+                <p><strong>Owner: </strong>{{ field.owner }}</p>
+            {% endif %}
+            {% if field.location %}
+                <p><strong>Location: </strong>{{ field.location }}</p>
+            {% endif %}
+            {% if field.type %}
+                <p><strong>Type: </strong>{{ field.type }}</p>
+            {% endif %}
+            {% if field.description %}
+                <p>{{ field.description }}</p>
+            {% endif %}
 
             <!-- Image -->
             {% if field.map %}
                 <img class="mx-auto obzor-full" src="{{ field.map.url }}" alt="">
+                <hr>
             {% endif %}
 
-            <hr>
 
-            <!-- Description -->
 
             <p>{{ field.description }}</p>
-            <a class="btn btn-outline-danger" href="{% url 'edit_field' field.pk %}">Edit field</a>
+            <a class="btn btn-outline-danger" href="{% url 'field-edit' field.pk %}">Edit field</a>
         </div>
 
     </div>
