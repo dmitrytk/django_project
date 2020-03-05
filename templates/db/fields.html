@@ -5,23 +5,24 @@
 
 
 {% block content %}
-    <div class="container mb-3">
-        <h2 class="text-center my-3">Oil fields database</h2>
-        <div class="row">
-            <div class="col-md-9">
-                <table class="table" id="data-table">
-                    <thead class="thead-dark">
-                    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
-                        <th>Field</th>
-                        <th>Type</th>
-                        <th>Location</th>
-                        <th>Owner</th>
-                        <th>Map</th>
-                        <th>Action</th>
-                    </tr>
+<div class="container mb-3">
+    <h2 class="text-center my-3">Oil fields database</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="bg-white p-3">
+                <table class="table mb-0" id="data-table">
+                    <thead class="table-light">
+                        <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Owner</th>
+                            <th>Map</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {% for field in fields %}
+                        {% for field in fields %}
                         <tr>
                             <td>
                                 <a href="{% url 'field-detail' field.id %}">{{ field.name }}</a>
@@ -31,12 +32,11 @@
                             <td>{{ field.owner }}</td>
                             <td>
                                 {% if field.map %}
-                                    <a href="{{ field.map.url }}"><img class="obzor-min" src="{{ field.map.url }}"/></a>
+                                <a href="{{ field.map.url }}"><img class="obzor-min" src="{{ field.map.url }}" /></a>
                                 {% endif %}
                             </td>
                             <td>
-                                <a href="{% url 'field-edit' field.id %}"><i
-                                        class="fas fa-edit"></i></a>
+                                <a href="{% url 'field-edit' field.id %}"><i class="fas fa-edit"></i></a>
                                 <span>&nbsp;</span>
                                 <a class="text-primary" href="{% url 'field-delete' field.id %}"><i
                                         class="fas fa-trash"></i></a>
@@ -44,25 +44,25 @@
                             </td>
 
                         </tr>
-                    {% endfor %}
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
-            <div class="col-md">
-                <div id="db-controls" class="card text-center">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="{% url 'field-add' %}"><i
-                                class="fas fa-plus-circle"></i>
+
+        </div>
+        <div class="col-md">
+            <div id="db-controls" class="card text-center border-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item py-3"><a href="{% url 'field-add' %}"><i class="fas fa-plus-circle"></i>
                             Add field</a></li>
-                        <li class="list-group-item"><a href="{% url 'fields-load' %}"><i
-                                class="fas fa-download"></i>
+                    <li class="list-group-item py-3"><a href="{% url 'fields-load' %}"><i class="fas fa-download"></i>
                             Load fields</a></li>
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
-
     </div>
+
+</div>
 {% endblock content %}
 
 

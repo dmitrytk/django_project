@@ -5,72 +5,74 @@
 
 
 {% block content %}
-    <div class="container mb-3">
-        <h2 class="text-center my-3">Wells database</h2>
-        <div class="row">
-            <div class="col-md-9">
+<div class="container mb-3">
+    <h2 class="text-center my-3">Wells database</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="bg-white p-3">
                 <table class="table" id="data-table">
-                    <thead class="thead-dark">
-                    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
-                        <th>Well</th>
-                        <th>Oil field</th>
-                        <th>Type</th>
-                        <th>Altitude</th>
-                        <th>MD</th>
-                        <th>X</th>
-                        <th>Y</th>
-                    </tr>
+                    <thead>
+                        <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+                            <th>Well</th>
+                            <th>Oil field</th>
+                            <th>Type</th>
+                            <th>Altitude</th>
+                            <th>MD</th>
+                            <th>X</th>
+                            <th>Y</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {% for well in wells %}
+                        {% for well in wells %}
                         <tr>
                             <td>{{ well.name }}</td>
                             <td>{{ well.field }}</td>
                             <td>
                                 {% if well.type %}
-                                    {{ well.type }}
+                                {{ well.type }}
                                 {% endif %}
                             </td>
                             <td>
                                 {% if well.alt %}
-                                    {{ well.alt }}
+                                {{ well.alt }}
                                 {% endif %}
                             </td>
                             <td>
                                 {% if well.md %}
-                                    {{ well.md }}
+                                {{ well.md }}
                                 {% endif %}
                             </td>
                             <td>
                                 {% if well.x %}
-                                    {{ well.x }}
+                                {{ well.x }}
                                 {% endif %}
                             </td>
                             <td>
                                 {% if well.y %}
-                                    {{ well.y }}
+                                {{ well.y }}
                                 {% endif %}
                             </td>
                         </tr>
-                    {% endfor %}
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
-
-            <div class="col-md">
-                <div id="db-controls" class="card text-center">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="{% url 'well-add' %}"><i class="fas fa-plus-circle"></i>
-                            Add well</a></li>
-                        <li class="list-group-item"><a href="{% url 'wells-load' %}"><i class="fas fa-download"></i>
-                            Load
-                            wells</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
+        <div class="col-md">
+            <div id="db-controls" class="card text-center border-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item py-3"><a href="{% url 'well-add' %}"><i class="fas fa-plus-circle"></i>
+                            Add well</a></li>
+                    <li class="list-group-item py-3"><a href="{% url 'wells-load' %}"><i class="fas fa-download"></i>
+                            Load
+                            wells</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+</div>
 {% endblock content %}
 
 
