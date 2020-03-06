@@ -53,3 +53,11 @@ def message(request, pk):
         message.unread = False
         message.save()
     return redirect(request, 'pages/message.html', {'message': message})
+
+
+def handler404(request, exception):
+    return render(request, 'errors/404.html')
+
+
+def handler500(request):
+    return render(request, 'errors/500.html')
