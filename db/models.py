@@ -14,6 +14,10 @@ class OilField(models.Model):
     def __str__(self):
         return self.name
 
+    def delete(self, using=None, keep_parents=False):
+        self.map.storage.delete(self.map.name)
+        super().delete()
+
     # def get_absolute_url(self):  # new
     #     return reverse('field_detail', args=[str(self.id)])
 
