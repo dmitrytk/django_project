@@ -10,10 +10,9 @@ AOS.init({
 
 
 $(document).ready(function () {
-    // $('#data-table').DataTable({
-    //     responsive: true
-    // });
-    //var table = new DataTable("table");
+    if (document.querySelector('#data-table')) {
+        var table = new DataTable("table");
+    }
 
     // Initialize owl carousel
     $(".owl-carousel").owlCarousel({
