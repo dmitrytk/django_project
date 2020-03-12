@@ -13,14 +13,13 @@
             {% if field.owner %}
                 <p><strong>Owner: </strong>{{ field.owner }}</p>
             {% endif %}
+
             {% if field.location %}
                 <p><strong>Location: </strong>{{ field.location }}</p>
             {% endif %}
+
             {% if field.type %}
                 <p><strong>Type: </strong>{{ field.type }}</p>
-            {% endif %}
-            {% if field.description %}
-                <p>{{ field.description }}</p>
             {% endif %}
 
             <!-- Image -->
@@ -31,7 +30,10 @@
 
 
 
-            <p>{{ field.description }}</p>
+            {% if field.description %}
+                <p>{{ field.description }}</p>
+            {% endif %}
+            
             <a class="btn btn-outline-danger" href="{% url 'field-edit' field.pk %}">Edit field</a>
         </div>
 
