@@ -1,19 +1,9 @@
 # Simple site running on Django.
 
-### Simple tools for routine work
-/
-
-### Oil field database
+### Oil field and wells database
 /db
 
-# Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+### Tools
+/db
 
-
-## Example
-## Example2
-## Third Example
-## [Fourth Example](http://www.fourthexample.com) 
+:License: MIT
