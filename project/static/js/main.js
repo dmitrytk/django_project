@@ -13,7 +13,7 @@ $(document).ready(function () {
     // $('#data-table').DataTable({
     //     responsive: true
     // });
-    var table = new DataTable("table");
+    //var table = new DataTable("table");
 
     // Initialize owl carousel
     $(".owl-carousel").owlCarousel({
