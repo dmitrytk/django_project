@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, DeleteView
 from django.shortcuts import redirect, render, get_object_or_404
 from django.forms.models import model_to_dict
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import FieldUpdateForm, FieldCreateForm, WellCreateForm
 from .models import OilField, Well
@@ -27,12 +28,12 @@ class DetailFieldView(DetailView):
     context_object_name = 'field'
 
 
-class DeleteFieldView(DeleteView):
+class DeleteFieldView(LoginRequiredMixin,DeleteView):
     model = OilField
     template_name = 'db/field_delete.html'
     success_url = reverse_lazy('fields')
 
-
+@login_required
 def edit_field(request, pk):
     field = get_object_or_404(OilField, pk=pk)
     if request.method == 'POST':
@@ -44,21 +45,21 @@ def edit_field(request, pk):
         form = FieldUpdateForm(instance=field)
     return render(request, 'db/field_edit.html', {'form': form, 'field': field})
 
-
+@login_required
 def load_wells(request):
     if request.method == 'POST':
         upload_wells(request.POST.get('well-data'))
         return redirect('wells')
     return render(request, 'db/wells_load.html')
 
-
+@login_required
 def load_fields(request):
     if request.method == 'POST':
         # upload_fields(request.POST.get('field-data'))
         print(request.POST.get('option-1'))
     return render(request, 'db/fields_load.html')
 
-
+@login_required
 def add_field(request):
     if request.method == 'POST':
         form = FieldCreateForm(request.POST, request.FILES)
@@ -69,7 +70,7 @@ def add_field(request):
         form = FieldCreateForm()
     return render(request, 'db/field_add.html', {'form': form})
 
-
+@login_required
 def add_well(request):
     if request.method == 'POST':
         form = WellCreateForm(request.POST)
