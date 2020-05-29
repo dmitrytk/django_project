@@ -1,12 +1,12 @@
-# takkand.pw
+# takkand.com
 
 This is the source code for my sandbox Django powered website at 
-[takkand.pw](https://takkand.pw).
+[takkand.com](https://takkand.com).
 
 
 ## To run locally:
 ### Clone repository
-	git clone https://github.com/dmitrytk/takkand.pw.git
+	git clone https://github.com/dmitrytk/takkand.com.git
 
 ### Create and activate Python 3.7 virtualenv
 	python3 -m venv venv
