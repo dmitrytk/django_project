@@ -45,6 +45,7 @@ def edit_field(request, pk):
         form = FieldUpdateForm(instance=field)
     return render(request, 'db/field_edit.html', {'form': form, 'field': field})
 
+# LOAD DATA
 @login_required
 def load_wells(request):
     if request.method == 'POST':
@@ -55,10 +56,11 @@ def load_wells(request):
 @login_required
 def load_fields(request):
     if request.method == 'POST':
-        # upload_fields(request.POST.get('field-data'))
-        print(request.POST.get('option-1'))
+        upload_fields(request.POST.get('field-data'))
+        return redirect('fields')
     return render(request, 'db/fields_load.html')
 
+# ADD DATA
 @login_required
 def add_field(request):
     if request.method == 'POST':

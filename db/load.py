@@ -7,7 +7,6 @@ import time
 
 
 # MAIN WELL LOAD METHOD
-
 def upload_wells(wells_data):
     if validate_string(wells_data):
         header, body = get_table(wells_data)

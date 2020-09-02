@@ -7,7 +7,7 @@ clear.addEventListener('click', del);
 txtArea.addEventListener('keyup', calculateAndShow);
 txtArea.addEventListener('input', calculateAndShow);
 
-txtArea.placeholder = 'Вставьте данные в формате:\nWELL\tX\t\t   Y\n1WZ    4564000\t789121\n2WZ    4564000\t789121';
+txtArea.placeholder = 'Input format:\nWELL\tX\t\t   Y\n1WZ    4564000\t789121\n2WZ    4564000\t789121';
 
 // Calculate distance betweens to well (points)
 function distance(well, x, y) {
