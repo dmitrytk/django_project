@@ -1,7 +1,6 @@
 # takkand.com
 
-This is the source code for my sandbox Django powered website at 
-[takkand.com](https://takkand.com).
+Source code for Django and PostgreSQL powered website [takkand.com](https://takkand.com).
 
 
 ## To run locally:
@@ -12,29 +11,29 @@ This is the source code for my sandbox Django powered website at
 	python3 -m venv venv
 	source venv/bin/activate
 
-### Install dependencies::
+### Install dependencies:
 	pip install -r requirements.txt
 
 ### Create PotsgreSQL database named 'django_db':
 	sudo -u postgres psql
 	CREATE DATABASE django_db;
 
-### Set env variables:
-	nano ~/.profile
 
-	export DEBUG=1
-	export SECRET_KEY=<secret_key>
-	export POSTGRES_PASSWORD=<password>
-	export POSTGRES_USER=<user>
+### Create .env for django-environ
+	nano project/.env
 
-	source ~/.profile
+	DEBUG=1
+	SECRET_KEY=<secret_key>
+	POSTGRES_PASSWORD=<password>
+	POSTGRES_USER=<user>
+
 
 ### Migrate and create superuser
-	python manage.py migrate
-	python manage.py createsuperuser
+	./manage.py migrate
+	./manage.py createsuperuser
 
 ### Run local development server
-	python managepy runserver 0.0.0.0:8000
+	python manage.py runserver 0.0.0.0:8000
 
 Site is running on 127.0.0.1:8000
 
