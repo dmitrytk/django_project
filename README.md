@@ -33,7 +33,7 @@ Source code for Django and PostgreSQL powered website [takkand.com](https://takk
 	./manage.py createsuperuser
 
 ### Run local development server
-	python manage.py runserver 0.0.0.0:8000
+	./manage.py runserver 0.0.0.0:8000
 
 Site is running on 127.0.0.1:8000
 
