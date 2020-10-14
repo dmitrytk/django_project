@@ -11,8 +11,10 @@ Source code for Django and PostgreSQL powered website [takkand.com](https://takk
 	python3 -m venv venv
 	source venv/bin/activate
 
+
 ### Install dependencies:
 	pip install -r requirements.txt
+
 
 ### Create PotsgreSQL database named 'django_db':
 	sudo -u postgres psql
@@ -24,8 +26,9 @@ Source code for Django and PostgreSQL powered website [takkand.com](https://takk
 
 	DEBUG=1
 	SECRET_KEY=<secret_key>
-	POSTGRES_PASSWORD=<password>
-	POSTGRES_USER=<user>
+    DB_=<db name>
+	DB_USER=<user>
+	DB_PASSWORD=<password>
 
 
 ### Migrate and create superuser

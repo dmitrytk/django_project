@@ -3,8 +3,8 @@
 {% block title %}{{ field.name }}{% endblock title %}
 {% block content %}
 
-    <div class="container mt-2">
-        <h2 class="text-center mb-3">{{ field.name }} field</h2>
+    <div class="container">
+        <h2 class="text-center my-3">{{ field.name }} field</h2>
         <div class="form-container">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
